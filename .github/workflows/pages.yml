@@ -21,13 +21,14 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      - name: Setup Zola
-        uses: taigahm/zola-build-action@v1
-        with:
-          zola_version: "0.19.0"
+      - name: Download Zola
+        run: |
+          mkdir -p bin
+          curl -sL https://github.com/zola-build/zola/releases/download/v0.19.0/zola-v0.19.0-x86_64-unknown-linux-gnu.tar.gz | tar xz -C bin
+          chmod +x bin/zola
 
       - name: Build with Zola
-        run: zola build
+        run: ./bin/zola build
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
