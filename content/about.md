@@ -1,5 +1,6 @@
 ---
 title: "About"
+date: 2026-11-01
 template: "page.html"
 weight: 100
 ---
