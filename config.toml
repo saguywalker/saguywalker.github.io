@@ -3,7 +3,7 @@ title = "saguywalker"
 description = "saguywalker's journals"
 default_language = "en"
 theme = "zola-hacker"
-generate_feeds = true
+generate_feeds = false
 taxonomies = [{ name = "tags" }]
 
 [extra]
@@ -13,5 +13,4 @@ menu = [
 ]
 social_links = [
     { platform = "github", user_id = "saguywalker" },
-    { platform = "feed", user_id = true },
 ]
