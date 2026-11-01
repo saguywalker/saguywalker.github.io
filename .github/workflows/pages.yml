@@ -21,6 +21,11 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
+      - name: Fetch theme
+        run: |
+          mkdir -p themes/linkita
+          git clone --depth 1 https://github.com/salif/linkita.git themes/linkita
+
       - name: Download Zola
         run: |
           ZOLA_VERSION="0.23.6"
