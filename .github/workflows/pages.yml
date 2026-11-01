@@ -23,8 +23,9 @@ jobs:
 
       - name: Download Zola
         run: |
+          ZOLA_VERSION="0.23.6"
           mkdir -p bin
-          curl -sL https://github.com/zola-build/zola/releases/download/v0.19.0/zola-v0.19.0-x86_64-unknown-linux-gnu.tar.gz | tar xz -C bin
+          curl -sL "https://github.com/getzola/zola/releases/download/v${ZOLA_VERSION}/zola-v${ZOLA_VERSION}-x86_64-unknown-linux-gnu.tar.gz" | tar xz -C bin
           chmod +x bin/zola
 
       - name: Build with Zola
