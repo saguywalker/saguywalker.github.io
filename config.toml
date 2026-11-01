@@ -1,0 +1,22 @@
+base_url = "https://saguywalker.github.io"
+title = "saguywalker"
+description = "saguywalker's journals"
+default_language = "en"
+theme = "linkita"
+generate_feeds = true
+feed_filenames = ["atom.xml"]
+
+[extra.profiles.saguywalker]
+name = "saguywalker"
+bio = ""
+social = [{ name = "github", url = "https://github.com/saguywalker" }]
+
+[extra.menus]
+menu_name = [
+    { url = "@base/about/", name = "About" },
+    { url = "@base/blog/", name = "Blog" },
+]
+
+[extra]
+header_menu_name = "menu_name"
+page_summary_on_paginator = true
