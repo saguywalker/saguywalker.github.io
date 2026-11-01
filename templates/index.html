@@ -1,0 +1,30 @@
+{%- extends "base.html" %}
+
+{%- block seo -%}
+  {{- super() }}
+
+  {%- if config.title %}
+    {%- set title = config.title %}
+  {%- else %}
+    {%- set title = "" %}
+  {%- endif %}
+
+  {%- if config.description and title %}
+    {%- set title_addition = title_separator ~ config.description %}
+  {%- elif config.description %}
+    {%- set title_addition = config.description %}
+  {%- else %}
+    {%- set title_addition = "" %}
+  {%- endif %}
+
+  {{<seo config section current_url current_path title title_addition is_home={true} />}}
+{%- endblock seo %}
+
+{%- block content %}
+<div class="pages">
+  {%- set posts = get_section(path="posts/_index.md") %}
+  {%- for page in posts.pages %}
+    {{<page_in_list page config />}}
+  {%- endfor %}
+</div>
+{%- endblock %}

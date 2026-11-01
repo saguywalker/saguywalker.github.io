@@ -1,3 +1,4 @@
 ---
-description: "Blog posts"
+description: ""
+paginate_by: 10
 ---

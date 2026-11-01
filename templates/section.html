@@ -1,0 +1,49 @@
+{%- extends "base.html" %}
+
+{%- block seo -%}
+  {{- super() }}
+
+  {%- if section.title %}
+    {%- set title = section.title %}
+  {%- elif section.description %}
+    {%- set title = section.description %}
+  {%- else %}
+    {%- set title = config.title %}
+  {%- endif %}
+
+  {%- if section.description and title %}
+    {%- set title_addition = title_separator ~ section.description %}
+  {%- elif section.description %}
+    {%- set title_addition = section.description %}
+  {%- else %}
+    {%- set title_addition = "" %}
+  {%- endif %}
+
+  {{<seo config section current_url current_path title title_addition is_home={false} />}}
+{%- endblock seo %}
+
+{%- block content %}
+<h2>{{ section.title | default(value=config.title) }}</h2>
+{%- if section.description %}
+<p class="page-info">{{ section.description }}</p>
+{%- endif %}
+
+<div class="pages">
+  {%- for page in paginator.pages %}
+    {{<page_in_list page config />}}
+  {%- endfor %}
+</div>
+{%- if paginator.total_pages > 1 %}
+<div class="pagination">
+  {%- if paginator.previous %}
+  <a href="{{ paginator.previous | safe }}" class="previous-page">&lt;-- Previous</a>
+  {%- else %}
+  <span class="previous-page">&lt;-- Previous</span>
+  {%- endif -%}{%- if paginator.next %}
+  <a href="{{ paginator.next | safe }}" class="next-page">Next --&gt;</a>
+  {%- else %}
+  <span class="next-page">Next --&gt;</span>
+  {%- endif %}
+</div>
+{%- endif %}
+{%- endblock %}
