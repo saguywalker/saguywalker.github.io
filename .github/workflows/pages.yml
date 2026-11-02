@@ -24,7 +24,7 @@ jobs:
       - name: Fetch theme
         run: |
           mkdir -p themes/zola-hacker
-          git clone --depth 1 https://github.com/en9inerd/zola-hacker.git themes/zola-hacker
+          git clone --depth 1 https://github.com/saguywalker/zola-hacker.git themes/zola-hacker
 
       - name: Download Zola
         run: |
